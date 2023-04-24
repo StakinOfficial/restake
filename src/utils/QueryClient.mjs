@@ -232,16 +232,50 @@ const QueryClient = async (chainId, restUrls, opts) => {
       }
     }
     const path = type === "rest" ? apiPath('/base/tendermint', 'blocks/latest') : "/block";
-    return Promise.any(urls.map(async (url) => {
-      url = url.replace(/\/$/, '')
+    // Randomize the order of urls
+    const urlsToAttempt = Array.from(urls).sort(() => Math.random() - 0.5);
+
+    while (urlsToAttempt.length > 0) {
+      const url = urlsToAttempt.pop().replace(/\/$/, "");
+
       try {
-        let data = await getLatestBlock(url, type, path, opts)
+        let data = await getLatestBlock(url, type, path, opts);
         if (type === "rpc") data = data.result;
+
         if (data.block?.header?.chain_id === chainId) {
+          console.log("[findAvailableUrl] Url chosen.", {
+            chainId,
+            url,
+          });
+
           return url;
+        } else {
+          console.log(
+            "[findAvailableUrl] Url didn't return correct payload, skipped.",
+            {
+              chainId,
+              url,
+            },
+          );
         }
-      } catch { }
-    }));
+      } catch (error) {
+        console.log(
+          "[findAvailableUrl] Failed to fetch from url.",
+          {
+            chainId,
+            url,
+          },
+          error,
+        );
+      }
+    }
+
+    console.log("[findAvailableUrl] None of the urls worked.", {
+      chainId,
+      urls,
+    });
+
+    return;
   }
 
   async function getLatestBlock(url, type, path, opts){
