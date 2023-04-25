@@ -81,8 +81,8 @@ export default function Autostake(mnemonic, opts) {
     }
     runners.push({ success: networkRunner?.didSucceed(), networkRunner, error, failedAddresses })
     if (!networkRunner?.didSucceed() && !networkRunner?.forceFail && retries < maxRetries && !failed) {
-      await logResults(health, networkRunner, error, `Failed attempt ${retries + 1}/${maxRetries + 1}, retrying in 30 seconds...`)
-      await new Promise(r => setTimeout(r, 30 * 1000));
+      await logResults(health, networkRunner, error, `Failed attempt ${retries + 1}/${maxRetries + 1}, retrying in 5 seconds...`)
+      await new Promise(r => setTimeout(r, 5 * 1000));
       return await runWithRetry(data, health, retries + 1, runners)
     }
     await logResults(health, networkRunner, error)
