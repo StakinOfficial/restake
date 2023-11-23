@@ -37,7 +37,7 @@ export default function Autostake(mnemonic, opts) {
         if (networkNames && networkNames.length && !networkNames.includes(data.name)) return
         if (data.enabled === false) return
 
-        const health = new Health(data.healthCheck, { dryRun: opts.dryRun })
+        const health = new Health(data.healthCheck, { dryRun: opts.dryRun, networkName: data.name })
         health.started('⚛')
         const results = await runWithRetry(data, health)
         const { success, skipped } = results[results.length - 1] || {}
@@ -189,7 +189,7 @@ export default function Autostake(mnemonic, opts) {
       hdPaths: [hdPath]
     });
 
-    if (network.slip44 === 60) {
+    if (slip44 === 60) {
       const ethSigner = EthWallet.fromMnemonic(mnemonic);
       signer = EthSigner(signer, ethSigner, network.prefix)
     }

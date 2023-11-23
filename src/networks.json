@@ -11,7 +11,7 @@
   },
   {
     "name": "juno",
-    "gasPrice": "0.0025ujuno",
+    "gasPrice": "0.0750ujuno",
     "ownerAddress": "junovaloper19ur8r2l25qhsy9xvej5zgpuc5cpn6syydmwtrt",
     "autostake": {
       "batchTxs": 25
@@ -29,8 +29,8 @@
   {
     "name": "chihuahua",
     "ownerAddress": "chihuahuavaloper19vwcee000fhazmpt4ultvnnkhfh23ppwxll8zz",
-    "gasPrice": "1uhuahua",
-    "gasPricePrefer": "1uhuahua"
+    "gasPrice": "500uhuahua",
+    "gasPricePrefer": "500uhuahua"
   },
   {
     "name": "gravitybridge",
@@ -215,7 +215,8 @@
   },
   {
     "name": "genesisl1",
-    "txTimeout": 120000
+    "txTimeout": 120000,
+    "gasPrice": "51000000000el1"
   },
   {
     "name": "tgrade",
