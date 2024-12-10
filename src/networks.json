@@ -11,7 +11,7 @@
   },
   {
     "name": "juno",
-    "gasPrice": "0.0025ujuno",
+    "gasPrice": "0.0750ujuno",
     "ownerAddress": "junovaloper19ur8r2l25qhsy9xvej5zgpuc5cpn6syydmwtrt",
     "autostake": {
       "batchTxs": 25
@@ -29,8 +29,8 @@
   {
     "name": "chihuahua",
     "ownerAddress": "chihuahuavaloper19vwcee000fhazmpt4ultvnnkhfh23ppwxll8zz",
-    "gasPrice": "1uhuahua",
-    "gasPricePrefer": "1uhuahua"
+    "gasPrice": "500uhuahua",
+    "gasPricePrefer": "500uhuahua"
   },
   {
     "name": "gravitybridge",
@@ -215,7 +215,8 @@
   },
   {
     "name": "genesisl1",
-    "txTimeout": 120000
+    "txTimeout": 120000,
+    "gasPrice": "51000000000el1"
   },
   {
     "name": "tgrade",
@@ -235,7 +236,7 @@
   },
   {
     "name": "likecoin",
-    "gasPrice": "10nanolike"
+    "gasPrice": "10000nanolike"
   },
   {
     "name": "passage",
@@ -316,5 +317,21 @@
     "name": "coreum",
     "ownerAddress": "corevaloper1py9v5f7e4aaka55lwtthk30scxhnqfa6agwxt8",
     "gasPrice": "0.0625ucore"
+  },
+  {
+    "name": "source",
+    "gasPrice": "0.05usource"
+  },
+  {
+    "name": "nolus",
+    "gasPrice": "0.0025unls"
+  },
+  {
+    "name": "realio",
+    "gasPrice": "1000000000ario"
+  },
+  {
+    "name": "dungeon",
+    "gasPrice": "0.05udgn"
   }
 ]
